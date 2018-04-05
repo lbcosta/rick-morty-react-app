@@ -1,0 +1,19 @@
+.my-image-list {
+  -webkit-margin-before: 0;
+  -webkit-padding-start: 0;
+  }
+
+
+.right-span {
+  float: right;
+}
+
+
+.info-wrap div{
+  padding: 8px 8px;
+}
+
+.my-content {
+  max-width: 100%;
+  padding-left: 100px;
+}
