@@ -15,5 +15,10 @@
 
 .my-content {
   max-width: 100%;
-  padding-left: 100px;
+  
+}
+
+.my-col {
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
