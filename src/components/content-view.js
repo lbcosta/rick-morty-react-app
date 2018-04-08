@@ -4,7 +4,6 @@ import $ from 'jquery';
 import CharacterCard from './card.js';
 import '../../node_modules/materialize-css/dist/css/materialize.css';
 import '../../node_modules/materialize-css/dist/js/materialize';
-import PubSub from 'pubsub-js'
 import { Link } from 'react-router'
 
 class CardGrid extends Component {
@@ -50,22 +49,17 @@ class Pagination extends Component {
             url: `https://rickandmortyapi.com/api/character/`,
             dataType: 'json',
             success: function (resposta) {
-                this.setState({ numPag: Math.floor((resposta.info.count)/10) });
+                this.setState({ numPag: Math.floor((resposta.info.count) / 10) });
             }.bind(this),
         });
     }
 
-    //pageOnClick
-    mudaPagina(pageNum) {
-        PubSub.publish('paginacao', pageNum);
-    }
+    // shouldComponentUpdate(nextProps,nextStates){
+    //     return nextProps.actualPage === this.props.actualPage ? true : false;
+    // }
 
-    shouldComponentUpdate(nextProps,nextStates){
-        return nextProps.actualPage === this.props.actualPage ? true : false;
-    }
+    render() {
 
-    render() {        
-        
         let pageElem = [];
         for (let i = 1; i <= this.state.numPag; i++) {
             if (i === this.props.actualPage) {
@@ -77,13 +71,13 @@ class Pagination extends Component {
             } else {
                 pageElem.push(
                     <li className="waves-effect" key={i}>
-                        <Link to={`/characters/${i}`} onClick={this.mudaPagina}>{i}</Link>
+                        <Link to={`/characters/${i}`}>{i}</Link>
                     </li>
                 )
 
             }
         }
-        
+
         return (
             <ul className="pagination">
                 <li className="disabled"><Link to="#!"><i className="material-icons">chevron_left</i></Link></li>
@@ -98,12 +92,21 @@ export default class ContentBox extends Component {
 
     constructor() {
         super();
-        this.state = { characters: [], /*personagensPorPagina: [],*/ actualPage: 1 };
+        this.state = { characters: [], actualPage: 1 };
     }
 
     componentWillMount() {
-        let limiteInicial = (1 + (10 * (this.state.actualPage - 1)));
-        let limiteFinal = 10 * this.state.actualPage;  
+        console.log('VIIIIIIIIIIIIIIIIIESH ME CHAMOU MANO');
+        
+        this.consumeAPI()
+    }
+
+    consumeAPI() {
+        console.log('ANTES TAVA ASSIM: ', this.state.characters);
+        
+
+        let limiteInicial = (1 + (10 * (this.props.params.page - 1)));
+        let limiteFinal = 10 * this.props.params.page;
         for (let i = limiteInicial; i <= limiteFinal; i++) {
             $.ajax({
                 url: `https://rickandmortyapi.com/api/character/${i}`,
@@ -111,16 +114,22 @@ export default class ContentBox extends Component {
                 success: function (resposta) {
                     this.setState({
                         characters: [...this.state.characters, resposta],
-                        //personagensPorPagina: this.pagination(this.state.characters)
+                        actualPage: this.props.params.page
                     });
+                    console.log('AGORA TA ASSIM: ', this.state.characters);
                 }.bind(this),
             });
         }
 
-        PubSub.subscribe('paginacao', function (topico, novaPagina) {
-            this.setState({ actualPage: novaPagina })
-        }.bind(this));
+       
 
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps !== this.props) {
+            this.setState({ characters: [] }, this.consumeAPI);
+            // this.consumeAPI();
+        }
     }
 
     render() {

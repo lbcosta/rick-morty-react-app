@@ -15,11 +15,11 @@ class App extends Component {
 
         <div id="menu">
           <div className="pure-menu">
-            <Link className="pure-menu-heading" to="/characters">COMPANY</Link>
+            <Link className="pure-menu-heading" to="/characters/1">COMPANY</Link>
 
             <ul className="pure-menu-list">
               <li className="pure-menu-item menu-item-divided pure-menu-selected">
-                <Link to="/characters" className="pure-menu-link">Characters</Link>
+                <Link to="/characters/1" className="pure-menu-link">Characters</Link>
               </li>
               <li className="pure-menu-item"><Link to="/locations" className="pure-menu-link">Locations</Link></li>
 

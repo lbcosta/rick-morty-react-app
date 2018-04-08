@@ -9,7 +9,7 @@ import ContentBox from './components/content-view';
 ReactDOM.render(
     (<Router history={browserHistory}>
         <Route path="/" component={App}>
-            <Route path="/characters" component={ContentBox}/>
+            <Route path="/characters/:page" component={ContentBox}/>
             <Route path="/locations"/>
             <Route path="/episodes"/>
             <Route path="/about"/>
