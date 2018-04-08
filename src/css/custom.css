@@ -3,22 +3,81 @@
   -webkit-padding-start: 0;
   }
 
+.my-header {
+  background-color: #97ce4c;
+}
+
+.my-header h2 {
+  color: rgb(255, 255, 255, 0.6);
+}
 
 .right-span {
   float: right;
 }
 
+.info-wrap {
+  margin-top: 20px;
+}
 
 .info-wrap div{
-  padding: 8px 8px;
+  padding: 20px 8px;
 }
 
 .my-content {
   max-width: 100%;
-  
+  padding: 5px;
+} 
+
+.my-nav-wrapper {
+  background-color: #43a047;
+  margin-left: -30px;
+  width: 1350px;
+  font-weight: 900;
 }
 
 .my-col {
   margin-bottom: 10px;
   margin-top: 10px;
+  background-color: rgb(151,206,76,0.5);
+
+}
+
+.search-col {
+  margin-left: 420px;
+}
+
+#search-btn {
+  margin-top: 20px;
+  width: 30px;
+  padding: 0 2rem 0 1rem;
+}
+
+.header h2 {
+  font-size: 30px;
+}
+
+#layout {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 900
+}
+
+#epi-div {
+  display: inline;
+}
+
+#my-card-title {
+  font-size: 18px;
+  text-align: center;
+  font-weight: 900;
+}
+
+#card-info {
+  font-size: 20px;
+  font-weight: 700;
+  color: #6a1b9a;
+}
+
+#start-btn {
+  margin-left: 500px;
+  margin-top: 100px;
 }

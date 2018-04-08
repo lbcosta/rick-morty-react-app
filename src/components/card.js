@@ -1,43 +1,60 @@
 import React, { Component } from 'react';
+import '../../node_modules/materialize-css/dist/css/materialize.css';
+import '../../node_modules/materialize-css/dist/js/materialize';
 import '../css/custom.css';
-import '../../node_modules/@material/image-list/dist/mdc.image-list.css';
-import '../../node_modules/@material/card/dist/mdc.card.css';
-
 class Card extends Component {
 
 
 
     render() {
+
         return (
-            <div className="mdc-card">
-                <div className="mdc-card__media">
-                    <ul className="mdc-image-list--with-text-protection my-image-list">
-                        <li className="mdc-image-list__item">
-                            <div className="mdc-image-list__image-aspect-container">
-                                <img className="mdc-image-list__image" src={this.props.image} alt=""></img>
-                            </div>
-                            <div className="mdc-image-list__supporting">
-                                <span className="mdc-image-list__label">{this.props.att1}</span>
-                            </div>
-                        </li>
-                    </ul>
+            <div className="card">
+                <div className="card-image waves-effect waves-block waves-light">
+                    <img className="activator" src={this.props.image} alt=''></img>
                 </div>
-            <div className="info-wrap">
-                <div>
-                    <span>{this.props.att2Span}</span>
-                    <span className="right-span">{this.props.att2}</span>
+                <div className="card-content">
+                    <span className="card-title activator grey-text text-darken-4" id="my-card-title">{this.props.att1}</span>
                 </div>
+                <div className="card-reveal" id="card-info">
+                    <span className="card-title grey-text text-darken-4">{this.props.att1}<i className="material-icons right">close</i></span>
+                    <div className="info-wrap">
+                        <div>
+                            <span>{this.props.att2Span}</span>
+                            <span className="right-span">{this.props.att2}</span>
+                            <hr/>
+                        </div>
 
-                <div>
-                    <span>{this.props.att3Span}</span>
-                    <span className="right-span">{this.props.att3}</span>
-                </div>
+                        <div>
+                            <span>{this.props.att3Span}</span>
+                            <span className="right-span">{this.props.att3}</span>
+                            <hr/>
+                        </div>
 
-                <div>
-                    <span>{this.props.att4Span}</span>
-                    <span className="right-span">{this.props.att4}</span>
+                        <div>
+                            <span>{this.props.att4Span}</span>
+                            <span className="right-span">{this.props.att4}</span>
+                            <hr/>
+                        </div>
+
+                        <div>
+                            <span>Episodios</span>
+                            {
+                                this.props.att5.map((episode) => {
+                                    return (
+                                        <div id="epi-div">
+                                            <span className="right-span" key={`episode.slice(40)`}>{episode.slice(40)}</span>
+                                            <br />
+                                        </div>  
+
+                                    );
+                                })
+                            }
+                        </div>
+                    </div>
+
+
                 </div>
-            </div>
             </div>
         );
     }

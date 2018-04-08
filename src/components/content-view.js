@@ -8,10 +8,9 @@ import { Link } from 'react-router'
 
 class CardGrid extends Component {
 
-    render() {
-
+    render() {   
         return (
-            <div className="container">
+            <div>
                 <div className="row">
                     {
                         this.props.characters.map((personagem) => {
@@ -25,6 +24,7 @@ class CardGrid extends Component {
                                         att3={personagem.status}
                                         att4Span="Species"
                                         att4={personagem.species}
+                                        att5={personagem.episode}
                                     />
                                 </div>
                             );
@@ -54,10 +54,6 @@ class Pagination extends Component {
         });
     }
 
-    // shouldComponentUpdate(nextProps,nextStates){
-    //     return nextProps.actualPage === this.props.actualPage ? true : false;
-    // }
-
     render() {
 
         let pageElem = [];
@@ -80,10 +76,44 @@ class Pagination extends Component {
 
         return (
             <ul className="pagination">
-                <li className="disabled"><Link to="#!"><i className="material-icons">chevron_left</i></Link></li>
+                <li className={this.props.actualPage === 1 ? "disabled" : "waves-effect"}><Link to={`/characters/${Number(this.props.actualPage) - 1}`}><i className="material-icons">chevron_left</i></Link></li>
                 {pageElem}
-                <li className="waves-effect"><Link to="#!"><i className="material-icons">chevron_right</i></Link></li>
+                <li className={this.props.actualPage === this.state.numPag ? "disabled" : "waves-effect"}><Link to={`/characters/${Number(this.props.actualPage) + 1}`}><i className="material-icons">chevron_right</i></Link></li>
             </ul>
+        );
+    }
+}
+
+class Filter extends Component {
+
+    constructor(){
+        super()
+        this.state = {character : ''}
+        this.setCharacter = this.setCharacter.bind(this); 
+        this.search = this.search.bind(this);
+    }
+
+    search(){
+        this.props.callBackSearch(this.state.character)
+    }
+
+    setCharacter(event) {
+        this.setState({character : event.target.value})
+    }
+
+    render() {
+        return (
+        
+                <form className="col s12 search-col">
+                    <div className="row">
+                        <div className="input-field col s6">
+                            <input id="searchBar" type="text" className="validate" value={this.state.character} onChange={this.setCharacter}></input>
+                            <label htmlFor="icon_prefix2">Pesquisar personagem</label>
+                        </div>
+                        <a className="waves-effect waves-light btn" id="search-btn" onClick={this.search}><i className="material-icons left">search</i></a>
+                    </div>
+                </form>
+     
         );
     }
 }
@@ -93,53 +123,61 @@ export default class ContentBox extends Component {
     constructor() {
         super();
         this.state = { characters: [], actualPage: 1 };
+        this.searchAPI = this.searchAPI.bind(this);
     }
 
     componentWillMount() {
-        console.log('VIIIIIIIIIIIIIIIIIESH ME CHAMOU MANO');
-        
         this.consumeAPI()
     }
 
     consumeAPI() {
-        console.log('ANTES TAVA ASSIM: ', this.state.characters);
-        
-
         let limiteInicial = (1 + (10 * (this.props.params.page - 1)));
         let limiteFinal = 10 * this.props.params.page;
+        let arrayAux = [];
         for (let i = limiteInicial; i <= limiteFinal; i++) {
             $.ajax({
                 url: `https://rickandmortyapi.com/api/character/${i}`,
                 dataType: 'json',
+                async: false,
                 success: function (resposta) {
-                    this.setState({
-                        characters: [...this.state.characters, resposta],
-                        actualPage: this.props.params.page
-                    });
-                    console.log('AGORA TA ASSIM: ', this.state.characters);
-                }.bind(this),
+                    arrayAux.push(resposta);
+                },
             });
         }
+        this.setState({
+            characters: arrayAux,
+            actualPage: this.props.params.page
+        });
+    }
 
-       
-
+    searchAPI(character){
+        $.ajax({
+            url: `https://rickandmortyapi.com/api/character/?name=${character}`,
+            dataType: 'json',
+            async: false,
+            success: function (resposta) {
+                this.setState({characters : resposta.results});
+            }.bind(this),
+        });
     }
 
     componentWillReceiveProps(nextProps) {
         if (nextProps !== this.props) {
             this.setState({ characters: [] }, this.consumeAPI);
-            // this.consumeAPI();
         }
     }
 
     render() {
         if (this.state.characters !== undefined) {
             return (
-                <div className="content my-content">
-                    <CardGrid characters={this.state.characters}
-                        actualPage={this.state.actualPage}
-                    />
-                    <Pagination actualPage={this.state.actualPage} />
+                <div>
+                    <Filter  callBackSearch={this.searchAPI}/>
+                    <div className="content my-content">
+                        <CardGrid characters={this.state.characters}
+                            actualPage={this.state.actualPage}
+                        />
+                        <Pagination actualPage={this.state.actualPage} />
+                    </div>
                 </div>
             );
         } else {

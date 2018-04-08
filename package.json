@@ -3,12 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@material/card": "^0.34.1",
-    "@material/grid-list": "^0.34.0",
-    "@material/image-list": "^0.34.0",
     "jquery": "^3.3.1",
     "materialize-css": "^0.100.2",
-    "pubsub-js": "^1.6.0",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
     "react-router": "^3.2.0",
