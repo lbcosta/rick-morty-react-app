@@ -5,6 +5,7 @@
 
 .my-header {
   background-color: #97ce4c;
+  padding: 2.5em 0 0;
 }
 
 .my-header h2 {
@@ -30,8 +31,7 @@
 
 .my-nav-wrapper {
   background-color: #43a047;
-  margin-left: -30px;
-  width: 1350px;
+  width: 100%;
   font-weight: 900;
 }
 
