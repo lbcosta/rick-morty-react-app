@@ -14,9 +14,9 @@ class Card extends Component {
                     <img className="activator" src={this.props.image} alt=''></img>
                 </div>
                 <div className="card-content">
-                    <span className="card-title activator grey-text text-darken-4" id="my-card-title">{this.props.att1}</span>
+                    <span className="card-title activator grey-text text-darken-4 my-card-title">{this.props.att1}</span>
                 </div>
-                <div className="card-reveal" id="card-info">
+                <div className="card-reveal card-info">
                     <span className="card-title grey-text text-darken-4">{this.props.att1}<i className="material-icons right">close</i></span>
                     <div className="info-wrap">
                         <div>
@@ -42,7 +42,7 @@ class Card extends Component {
                             {
                                 this.props.att5.map((episode) => {
                                     return (
-                                        <div id="epi-div">
+                                        <div className="epi-div">
                                             <span className="right-span" key={`episode.slice(40)`}>{episode.slice(40)}</span>
                                             <br />
                                         </div>  

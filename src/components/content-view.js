@@ -8,14 +8,14 @@ import { Link } from 'react-router'
 
 class CardGrid extends Component {
 
-    render() {   
+    render() {
         return (
             <div>
                 <div className="row">
                     {
                         this.props.characters.map((personagem) => {
                             return (
-                                <div className="col s3 my-col" key={personagem.id}>
+                                <div className="col s12 m4 l3 my-col" key={personagem.id}>
                                     <CharacterCard image={personagem.image}
                                         att1={personagem.name}
                                         att2Span="ID"
@@ -86,34 +86,45 @@ class Pagination extends Component {
 
 class Filter extends Component {
 
-    constructor(){
+    constructor() {
         super()
-        this.state = {character : ''}
-        this.setCharacter = this.setCharacter.bind(this); 
-        this.search = this.search.bind(this);
+        this.state = { character: '' }
+        this.setCharacter = this.setCharacter.bind(this);
+        this.searchClick = this.searchClick.bind(this);
+        this.searchEnter = this.searchEnter.bind(this);
     }
 
-    search(){
+    searchClick(event) {
         this.props.callBackSearch(this.state.character)
     }
 
+    searchEnter(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            this.props.callBackSearch(this.state.character)
+        }
+    }
+
     setCharacter(event) {
-        this.setState({character : event.target.value})
+        this.setState({ character: event.target.value })
     }
 
     render() {
         return (
-        
-                <form className="col s12 search-col">
-                    <div className="row">
-                        <div className="input-field col s6">
-                            <input id="searchBar" type="text" className="validate" value={this.state.character} onChange={this.setCharacter}></input>
-                            <label htmlFor="icon_prefix2">Pesquisar personagem</label>
-                        </div>
-                        <a className="waves-effect waves-light btn" id="search-btn" onClick={this.search}><i className="material-icons left">search</i></a>
+
+            <form>
+                <div className="row">
+                    <div className="input-field col s7 offset-s2">
+                        <input id="searchBar" type="text" className="validate" value={this.state.character} onChange={this.setCharacter} onKeyDown={this.searchEnter}></input>
+                        <label htmlFor="icon_prefix2">Pesquisar personagem</label>
                     </div>
-                </form>
-     
+                    <div className="col s1">
+                        <a className="waves-effect waves-light btn" id="search-btn" onClick={this.searchClick}><i className="material-icons">search</i></a>
+
+                    </div>
+                </div>
+            </form>
+
         );
     }
 }
@@ -150,13 +161,13 @@ export default class ContentBox extends Component {
         });
     }
 
-    searchAPI(character){
+    searchAPI(character) {
         $.ajax({
             url: `https://rickandmortyapi.com/api/character/?name=${character}`,
             dataType: 'json',
             async: false,
             success: function (resposta) {
-                this.setState({characters : resposta.results});
+                this.setState({ characters: resposta.results });
             }.bind(this),
         });
     }
@@ -171,7 +182,7 @@ export default class ContentBox extends Component {
         if (this.state.characters !== undefined) {
             return (
                 <div>
-                    <Filter  callBackSearch={this.searchAPI}/>
+                    <Filter callBackSearch={this.searchAPI} />
                     <div className="content my-content">
                         <CardGrid characters={this.state.characters}
                             actualPage={this.state.actualPage}

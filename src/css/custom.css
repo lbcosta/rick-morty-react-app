@@ -27,6 +27,8 @@
 .my-content {
   max-width: 100%;
   padding: 5px;
+  margin-left: 5%;
+  margin-right: 5%;
 } 
 
 .my-nav-wrapper {
@@ -36,10 +38,7 @@
 }
 
 .my-col {
-  margin-bottom: 10px;
-  margin-top: 10px;
   background-color: rgb(151,206,76,0.5);
-
 }
 
 .search-col {
@@ -48,8 +47,7 @@
 
 #search-btn {
   margin-top: 20px;
-  width: 30px;
-  padding: 0 2rem 0 1rem;
+  padding: 0 2rem 0 2rem;
 }
 
 .header h2 {
@@ -61,17 +59,17 @@
   font-weight: 900
 }
 
-#epi-div {
+.epi-div {
   display: inline;
 }
 
-#my-card-title {
+.my-card-title {
   font-size: 18px;
   text-align: center;
   font-weight: 900;
 }
 
-#card-info {
+.card-info {
   font-size: 20px;
   font-weight: 700;
   color: #6a1b9a;
@@ -80,4 +78,14 @@
 #start-btn {
   margin-left: 500px;
   margin-top: 100px;
+}
+
+.card {
+  height: 375px;
+}
+
+#show-me {
+  display: block;
+  margin: 0 auto;
+  margin-top: 5%;
 }
