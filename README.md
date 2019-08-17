@@ -1,68 +1,66 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## CODING CHALLENGE (![en-US](https://github.com/lbcosta/rick-morty-react-app/raw/master/united-states.png))
 
-## Available Scripts
+> In April 2018, I took a coding challenge for a job interview at CSI Group. The following text was sent to me by e-mail and describes the challenge.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+### General Objective:
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Develop a web application (single page application) that consumes a API and show the results.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+### Specific Objectives:
 
-### `npm test`
+- Consume Rick and Morty API following the [API's documentation](https://rickandmortyapi.com/documentation/)
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Use the endpoint: _{GET} https://rickandmortyapi.com/api/character/_
 
-### `npm run build`
+- After getting the results, display the following information: **id**, **name**, **status**, **species** e **image**.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Build a interface using cards.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+- Display the cards using pagination. Max: 10 cards per page.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- On a card click of a character, show its information **{id, name, status, species e image }** and which episodes it appeared.
 
-### `npm run eject`
+- Apply search filter per character.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Use React as **Javascript** framework.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- You may use any **CSS** framework - preferably following the Material Design Style Guide.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+**Obs:** Feel free to add any feature you want. We will consider them as a differential in your final evaluation
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## AVALIAÇÃO (![pt-BR](https://github.com/lbcosta/rick-morty-react-app/raw/master/brazil.png))
 
-## Learn More
+> Em Abril de 2018, eu participei de um processo seletivo para desenvolvedor React Junior para o CSI Group. O texto abaixo foi me enviado por e-mail e descreve o desafio.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Objetivo Geral:
 
-### Code Splitting
+Desenvolver uma aplicação web (de uma página) que consuma uma API e
+mostre o resultado.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+### Objetivos Específicos:
 
-### Analyzing the Bundle Size
+- Consumir serviço, seguindo a [documentação da API](https://rickandmortyapi.com/documentation/)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+- Utilizar o end point: _{GET} https://rickandmortyapi.com/api/character/_
 
-### Making a Progressive Web App
+- Com o resultado, mostrar as seguintes informações: **id**, **name**, **status**, **species** e **image**.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+- Monte a interface utilizando cards.
 
-### Advanced Configuration
+- Exibir os cards em paginação. Max: 10 Cards por página
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+- Ao clicar no card do respectivo personagem deve exibir as mesmas informações **{id, name, status, species e image }** e quais episódios este participou na serie.
 
-### Deployment
+- Aplicar filtros de busca por personagem.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+- Utilizar React como framework **Javascript.**
 
-### `npm run build` fails to minify
+- Pode utilizar qualquer framework **CSS** – preferência seguindo o Material
+  Design como guia.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+**Obs:** Sinta-se livre para adicionar quaisquer incrementos na aplicação, os mesmos
+serão considerados um diferencial na avaliação final.
