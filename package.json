@@ -1,24 +1,31 @@
 {
-  "name": "rick-morty",
+  "name": "rick-morty-react-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "ajv": "^6.4.0",
-    "cryptiles": "^4.1.2",
-    "hoek": "^5.0.3",
-    "jquery": "^3.3.1",
-    "materialize-css": "^1.0.0",
-    "randomatic": "^3.0.0",
-    "react": "^16.3.1",
-    "react-dom": "^16.3.1",
-    "react-router": "^4.3.1",
-    "react-scripts": "2.0.4",
-    "url-parse": "^1.4.3"
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-scripts": "3.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "react-scripts test",
     "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
