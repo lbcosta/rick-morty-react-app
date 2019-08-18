@@ -1,7 +1,18 @@
 import React from "react";
+import { BrowserRouter } from 'react-router-dom';
+
+import Routes from './routes'
+
+
+import GlobalStyle from './styles/global';
 
 function App() {
-  return <h1>Pickle Rick!!!!</h1>;
+  return (
+    <BrowserRouter>
+      <Routes />
+      <GlobalStyle />
+    </BrowserRouter>
+  )
 }
 
 export default App;
