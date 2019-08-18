@@ -1,4 +1,4 @@
-## CODING CHALLENGE ![en-US](https://github.com/lbcosta/rick-morty-react-app/raw/master/united-states-flag.png)
+## CODING CHALLENGE ![en-US](https://github.com/lbcosta/rick-morty-react-app/raw/master/united-states.png)
 
 > In April 2018, I took a coding challenge for a job interview at CSI Group. The following text was sent to me by e-mail and describes the challenge.
 
@@ -30,7 +30,7 @@ Develop a web application (single page application) that consumes a API and show
 
 **Obs:** Feel free to add any feature you want. We will consider them as a differential in your final evaluation
 
-## AVALIAÇÃO ![pt-BR](https://github.com/lbcosta/rick-morty-react-app/raw/master/brazil-flag.png)
+## AVALIAÇÃO ![pt-BR](https://github.com/lbcosta/rick-morty-react-app/raw/master/brazil.png)
 
 > Em Abril de 2018, eu participei de um processo seletivo para desenvolvedor React Junior para o CSI Group. O texto abaixo foi me enviado por e-mail e descreve o desafio.
 
