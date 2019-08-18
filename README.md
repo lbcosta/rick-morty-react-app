@@ -2,6 +2,8 @@
 
 > In April 2018, I took a coding challenge for a job interview at CSI Group. The following text was sent to me by e-mail and describes the challenge.
 
+> In August 2019, I decided to redo the entire challenge just for fun (and to see how much I evolved in React)
+
 ---
 
 ### General Objective:
@@ -33,6 +35,8 @@ Develop a web application (single page application) that consumes a API and show
 ## AVALIAÇÃO ![pt-BR](https://github.com/lbcosta/rick-morty-react-app/raw/master/brazil.png)
 
 > Em Abril de 2018, eu participei de um processo seletivo para desenvolvedor React Junior para o CSI Group. O texto abaixo foi me enviado por e-mail e descreve o desafio.
+
+> Em Agosto de 2019, Eu decidi refazer todo o desafio por diversão (e pra saber o quanto evoluí em React)
 
 ---
 
