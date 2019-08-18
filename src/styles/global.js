@@ -1,6 +1,9 @@
 import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css?family=Orbitron&display=swap');
+  @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
   * {
     margin: 0;
     padding: 0;
@@ -14,7 +17,7 @@ export default createGlobalStyle`
     height: 100%;
   }
   body {
-    background-color: #fafafa;
+    background: #8BC84B;
     -webkit-font-smoothing: antialiased !important;
   }
   button {
@@ -22,7 +25,7 @@ export default createGlobalStyle`
     outline: none !important;
   }
   body, input, button {
-    font: 14px "Quicksand", sans-serif;
+    font: 12px 'Roboto', sans-serif;
   }
   ul {
     list-style: none;
