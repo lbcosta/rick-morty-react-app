@@ -24,19 +24,14 @@ export default function Home({ match }) {
   useEffect(() => {
     async function loadData() {
       setLoading(true);
-      const apiResponse = await api.get(page ? `/?page=${page}` : '');
+      const apiResponse = await api.get(`/?page=${page}`);
 
-      setCharacters(
-        apiResponse.data.results.map(char => ({
-          ...char,
-          displayEpisodes: false,
-        }))
-      );
+      setCharacters(apiResponse.data.results);
       setLoading(false);
     }
 
     loadData();
-  }, []);
+  }, [match.params.page]);
 
   function setDisplayEpisodes(id) {
     setCharacters(
@@ -57,7 +52,7 @@ export default function Home({ match }) {
           </h1>
         </header>
         <ul>
-          <Link to={`/${page && getPage(-1, page)}`}>
+          <Link to={`/${getPage(-1, page)}`}>
             <li> prev </li>
           </Link>
           {clickablePages.map(pageNumber => (
@@ -65,7 +60,7 @@ export default function Home({ match }) {
               <li>{pageNumber}</li>
             </Link>
           ))}
-          <Link to={`/${page && getPage(1, page)}`}>
+          <Link to={`/${getPage(1, page)}`}>
             <li> next </li>
           </Link>
         </ul>
