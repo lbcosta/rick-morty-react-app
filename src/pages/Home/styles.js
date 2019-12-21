@@ -72,9 +72,9 @@ export const Card = styled.li`
 
       h1 {
         span {
-          background: #fff;
-          color: #7159c1;
-          border-radius: 50%;
+          background: rgba(33, 216, 255, 0.8);
+          color: #fff;
+          border-radius: 3px;
           padding: 0 6px;
         }
       }
