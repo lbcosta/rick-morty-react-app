@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../../services/api';
 
-import { CardGrid, Card, Header } from './styles';
+import { CardGrid, Card, Header, PageNumber } from './styles';
 
 function getClickablePages(actualPage) {
   const offsets = [0, 1, 2, 3, 4];
@@ -18,8 +18,8 @@ function getPage(direction, actualPage) {
 export default function Home({ match }) {
   const [characters, setCharacters] = useState([]);
   const [loading, setLoading] = useState(false);
-  const clickablePages = getClickablePages(match.params.page || 1);
-  const page = match.params.page || 1;
+  const clickablePages = getClickablePages(Number(match.params.page) || 1);
+  const page = Number(match.params.page) || 1;
 
   useEffect(() => {
     async function loadData() {
@@ -57,7 +57,9 @@ export default function Home({ match }) {
           </Link>
           {clickablePages.map(pageNumber => (
             <Link to={`/${pageNumber}`} key={pageNumber}>
-              <li>{pageNumber}</li>
+              <PageNumber actualPage={pageNumber === page}>
+                {pageNumber}
+              </PageNumber>
             </Link>
           ))}
           <Link to={`/${getPage(1, page)}`}>

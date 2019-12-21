@@ -28,7 +28,11 @@ export const Header = styled.div`
 
     a {
       text-decoration: none;
-      color: inherit;
+
+      :first-child,
+      :last-child {
+        color: inherit;
+      }
 
       li {
         padding: 0 10px;
@@ -119,4 +123,8 @@ export const CardGrid = styled.ul`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-gap: 15px;
+`;
+
+export const PageNumber = styled.li`
+  color: ${({ actualPage }) => (actualPage ? '#21d8ff' : '#000')};
 `;
