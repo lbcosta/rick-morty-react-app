@@ -31,7 +31,7 @@ export default function Home({ match }) {
     }
 
     loadData();
-  }, [match.params.page]);
+  }, [match.params.page, page]);
 
   function setDisplayEpisodes(id) {
     setCharacters(
