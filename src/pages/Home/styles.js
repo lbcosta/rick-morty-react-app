@@ -63,9 +63,6 @@ export const Card = styled.li`
   }
 
   section {
-    /* top: 0;
-    position: absolute; */
-
     header {
       padding: 5px 0 10px 10px;
 
@@ -91,7 +88,7 @@ export const Card = styled.li`
     height: 82%;
     width: 98%;
     position: absolute;
-    overflow-y: scroll;
+    overflow-y: auto;
     transition: opacity 150ms ease-in-out;
 
     p {
