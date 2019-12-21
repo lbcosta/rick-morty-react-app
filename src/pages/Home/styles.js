@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 export const Header = styled.div`
   font: 12px 'Orbitron', sans-serif;
@@ -120,11 +120,44 @@ export const Card = styled.li`
 `;
 
 export const CardGrid = styled.ul`
-  display: grid;
+  display: ${({ loading }) => (loading ? 'block' : 'grid')};
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-gap: 15px;
 `;
 
 export const PageNumber = styled.li`
   color: ${({ actualPage }) => (actualPage ? '#21d8ff' : '#000')};
+`;
+
+const spinnerAnimation = keyframes`
+  0% {
+      transform: translate3d(-50%, -50%, 0) rotate(0deg);
+  }
+  100% {
+        transform: translate3d(-50%, -50%, 0) rotate(360deg);
+  }
+`;
+
+export const Spinner = styled.div`
+  height: 100vh;
+  opacity: 1;
+  position: relative;
+  transition: opacity linear 0.1s;
+
+  &::before {
+    animation: 2s linear infinite ${spinnerAnimation};
+    border: solid 3px #7159c1;
+    border-bottom-color: #21d8ff;
+    border-radius: 50%;
+    content: '';
+    height: 40px;
+    left: 50%;
+    opacity: inherit;
+    position: absolute;
+    top: 25%;
+    transform: translate3d(-50%, -50%, 0);
+    transform-origin: center;
+    width: 40px;
+    will-change: transform;
+  }
 `;

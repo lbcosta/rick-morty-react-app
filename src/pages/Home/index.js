@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../../services/api';
 
-import { CardGrid, Card, Header, PageNumber } from './styles';
+import { CardGrid, Card, Header, PageNumber, Spinner } from './styles';
 
 function getClickablePages(actualPage) {
   const offsets = [0, 1, 2, 3, 4];
@@ -67,9 +67,9 @@ export default function Home({ match }) {
           </Link>
         </ul>
       </Header>
-      <CardGrid>
+      <CardGrid loading={loading}>
         {loading ? (
-          <p>Loading...</p>
+          <Spinner />
         ) : (
           characters.map(char => (
             <Card
