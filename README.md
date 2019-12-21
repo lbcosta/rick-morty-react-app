@@ -1,3 +1,5 @@
+> You can check the application out at https://rick-morty-react-app.netlify.com/
+
 ## CODING CHALLENGE ![en-US](https://github.com/lbcosta/rick-morty-react-app/raw/master/united-states.png)
 
 > In April 2018, I took a coding challenge for a job interview for React developer intern at CSI Group. The following text was sent to me by e-mail and describes the challenge.
