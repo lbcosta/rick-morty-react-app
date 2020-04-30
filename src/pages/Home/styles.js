@@ -11,9 +11,11 @@ export const Header = styled.div`
 
   header {
     margin: 10px;
+    user-select: none;
 
     h1 {
-      font-size: 3em;
+      font-size: 4em;
+      -webkit-text-stroke: 1px #f5f5f5;
 
       span {
         color: #21d8ff;
@@ -49,7 +51,7 @@ export const Header = styled.div`
 
 export const Card = styled.li`
   color: #fff;
-  background: #7159c1;
+  background: #7d12ff;
   margin: 10px;
   border-radius: 10px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -57,8 +59,12 @@ export const Card = styled.li`
   cursor: pointer;
   position: relative;
 
+  backdrop-filter: blur(5px);
+  border: 4px solid #ab20fd;
+  box-shadow: 0 10px 25px #ab20fd;
+
   :hover {
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    transform: scale(1.05);
   }
 
   img {
@@ -94,6 +100,10 @@ export const Card = styled.li`
     position: absolute;
     overflow-y: auto;
     transition: opacity 150ms ease-in-out;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
     p {
       background: #7159c1;

@@ -17,7 +17,7 @@ export default createGlobalStyle`
     height: 100%;
   }
   body {
-    background: #8BC84B;
+    background: linear-gradient(to right,  #77D653, #67C64C, #C3F295, #67C64C, #77D653);
     -webkit-font-smoothing: antialiased !important;
   }
   button {
