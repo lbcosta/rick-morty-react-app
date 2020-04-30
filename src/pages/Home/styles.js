@@ -13,9 +13,18 @@ export const Header = styled.div`
     margin: 10px;
     user-select: none;
 
+    @media only screen and (max-width: 600px) {
+      margin-top: -30px;
+    }
+
     h1 {
       font-size: 4em;
       -webkit-text-stroke: 1px #f5f5f5;
+
+      @media only screen and (max-width: 600px) {
+        text-align: center;
+        font-size: 2.5em;
+      }
 
       span {
         color: #21d8ff;
@@ -42,7 +51,9 @@ export const Header = styled.div`
         transition: color 100ms ease-in-out;
 
         :hover {
-          color: #21d8ff;
+          @media only screen and (min-width: 600px) {
+            color: #21d8ff;
+          }
         }
       }
     }
@@ -64,7 +75,9 @@ export const Card = styled.li`
   box-shadow: 0 10px 25px #ab20fd;
 
   :hover {
-    transform: scale(1.05);
+    @media only screen and (min-width: 600px) {
+      transform: scale(1.05);
+    }
   }
 
   img {
@@ -98,7 +111,7 @@ export const Card = styled.li`
     height: 82%;
     width: 98%;
     position: absolute;
-    overflow-y: auto;
+    overflow-y: ${props => (props.displayEpisodes ? 'auto' : 'hidden')};
     transition: opacity 150ms ease-in-out;
 
     &::-webkit-scrollbar {
